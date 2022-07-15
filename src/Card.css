@@ -1,0 +1,10 @@
+.front-face,
+.back-face {
+  border: 2px solid blue;
+  position: absolute;
+  /* display: inline; */
+}
+
+  /* {
+  border: 2px solid blue;
+} */
