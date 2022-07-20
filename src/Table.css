@@ -1,4 +1,7 @@
-#card-area {
-  /* border: 2px solid blue; */
-  /* display: flex; */
+#memory-game {
+  border: 2px solid lime;
+  width: 640px;
+  height: 640px;
+  display: flex;
+  flex-wrap: wrap;
 }

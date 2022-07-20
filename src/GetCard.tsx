@@ -22,14 +22,19 @@ interface ICards {
 function GetCard({ cards }: ICards) {
 
   return (
-    <section>
+
+    <>
       {cards.map((card: CardInterface) =>
         <>
-          <Card key={card.code} card={card} />
-          <Card key={card.code} card={card} />
+          <section className="memory-card">
+            <Card key={card.code} card={card} />
+          </section>
+          <section className="memory-card">
+            <Card key={card.code} card={card} />
+          </section>
         </>
       )}
-    </section>
+    </>
   )
 }
 

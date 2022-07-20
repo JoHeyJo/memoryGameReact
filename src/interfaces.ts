@@ -5,3 +5,10 @@ export interface CardInterface {
   value: string
   suit: string
 }
+
+export interface IGetCards {
+  success: boolean
+  cards: any
+  deck_id: string
+  remaining: number
+}

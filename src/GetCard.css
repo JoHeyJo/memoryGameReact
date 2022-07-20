@@ -1,5 +1,5 @@
-#card-area {
-  border: 2px solid green;
+.memory-card {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
+  /* position: relative; */
 }
