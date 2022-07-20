@@ -1,6 +1,7 @@
 .front-face,
 .back-face {
   border: 2px solid deeppink;
+  backface-visibility: hidden;
   /* position: absolute; */
   /* position: absolute;
   width: 50px;
@@ -11,6 +12,10 @@
 img {
   width: 100px;
   height: 150px;
+}
+
+.front-face {
+  transform: rotateY(180deg);
 }
 
 .back-face {

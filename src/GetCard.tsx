@@ -20,16 +20,26 @@ interface ICards {
 }
 
 function GetCard({ cards }: ICards) {
+  const [isActive, setActive] = useState(false);
+
+  function flipCard(e:any) {
+    e.currentTarget.classList.toggle('flip');
+    console.log(e)
+  }
+
+  // function toggleClass(e:any) {
+  //   e.setActive(!isActive)
+  // }
 
   return (
 
     <>
       {cards.map((card: CardInterface) =>
         <>
-          <section className="memory-card">
+          <section className='memory-card' onClick={flipCard}>
             <Card key={card.code} card={card} />
           </section>
-          <section className="memory-card">
+          <section className='memory-card' onClick={flipCard}>
             <Card key={card.code} card={card} />
           </section>
         </>
