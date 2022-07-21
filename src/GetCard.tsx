@@ -39,9 +39,9 @@ function GetCard({ cards }: ICards) {
           <section className='memory-card' onClick={flipCard}>
             <Card key={card.code} card={card} />
           </section>
-          <section className='memory-card' onClick={flipCard}>
+          {/* <section className='memory-card' onClick={flipCard}>
             <Card key={card.code} card={card} />
-          </section>
+          </section> */}
         </>
       )}
     </>

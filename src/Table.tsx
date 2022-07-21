@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import GetCard from './GetCard'
 // import Card from './Card'
-import { getDeckId, getCards } from './utils/deck';
+import { getDeckId, getCards, dupCards, shuffle } from './utils/deck';
 import './Table.css'
 
 
@@ -31,9 +31,13 @@ function Table() {
     (async function fetchCard(): Promise<void> {
       setCards([]);
       const cardsPromise = await getCards(deckId);
-      setCards(cardsPromise.cards);
+      const pairsOfCards = dupCards(cardsPromise.cards);
+      const shuffledCards = shuffle(pairsOfCards);
+      setCards(shuffledCards);
     })();
   }, [deckId])
+
+
 
   return (
     <>

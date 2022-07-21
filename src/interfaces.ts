@@ -8,7 +8,7 @@ export interface CardInterface {
 
 export interface IGetCards {
   success: boolean
-  cards: any
+  cards: []
   deck_id: string
   remaining: number
 }
