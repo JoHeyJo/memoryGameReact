@@ -16,7 +16,9 @@ import './Table.css'
 
 function Table() {
   const [cards, setCards] = useState([]);
-  const [deckId, setDeckId] = useState<number>(0)
+  const [deckId, setDeckId] = useState<number>(0);
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
+  const [flippedCards, setFlippedCards] = useState<any[]>([]);
 
   /** return deck id by calling on getDeckId() */
   async function fetchDeckId(): Promise<void> {
@@ -39,12 +41,49 @@ function Table() {
 
 
 
+  /** set flipped cards to state */
+  function addFlippedCard(event: any): void {
+    setFlippedCards(flippedCards => [...flippedCards, event]);
+  }
+
+
+  /** checks if cards match based id(card code) */
+  function isAMatch(card1: any, card2: any) {
+    return card1.id === card2.id;
+  }
+
+  /** currently flipping card w/ dom manipulation
+ * TODO: change flip function by add/remove flip property to card object
+ */
+  useEffect(() => {
+    if (flippedCards.length === 2) {
+      if (!isAMatch(flippedCards[0], flippedCards[1])) {
+        setTimeout(function () {
+          flippedCards[0].classList.remove('flip')
+          flippedCards[1].classList.remove('flip')
+          setFlippedCards([]);
+          toggleDisable();
+        }, 2000)
+      } else {
+        toggleDisable();
+        setFlippedCards([]);
+      }
+    }
+  }, [flippedCards])
+
+  if (flippedCards.length === 2) toggleDisable();
+
+  /** toggle disabled */
+  function toggleDisable(): void {
+    setIsDisabled(!isDisabled);
+  }
+// console.log('cards',cards)
   return (
     <>
       <p>Table</p>
       <button onClick={fetchDeckId}>Click me to set table</button>
-      <section id='memory-game'>
-          <GetCard cards={cards} />
+      <section className={isDisabled ? 'memory-game disable-pointer' : 'memory-game'}>
+        <GetCard cards={cards} addFlippedCard={() => addFlippedCard} />
       </section>
     </>
   )

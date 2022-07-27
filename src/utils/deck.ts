@@ -18,7 +18,7 @@ async function getCards(deckId: number): Promise<IGetCards>{
   return response.data
 }
 
-/** Fisher-Yates "perfect shuffle" algorithm. Shuffles vales in an array */
+/** Fisher-Yates "perfect shuffle" algorithm. Shuffles values in an array */
 function shuffle(cards: []): []{
   for (let i = cards.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * i);

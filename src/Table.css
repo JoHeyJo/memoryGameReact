@@ -1,4 +1,4 @@
-#memory-game {
+.memory-game {
   border: 2px solid lime;
   width: 500px;
   height: 500px;
@@ -7,4 +7,8 @@
   justify-content: space-between;
   margin: auto;
   perspective: 1000px;
+}
+
+.disable-pointer {
+  pointer-events: none;
 }

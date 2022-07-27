@@ -1,5 +1,5 @@
 export interface CardInterface {
-  code: number
+  code: string
   image: string
   images: string
   value: string

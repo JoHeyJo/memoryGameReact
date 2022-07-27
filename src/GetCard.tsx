@@ -1,11 +1,12 @@
-import react, { useState } from "react";
+import react, { ChangeEvent, SyntheticEvent, useEffect, useState } from "react";
 import axios from 'axios';
 import { getDeckId } from './utils/deck';
 import Card from "./Card";
 import { getCards } from "./utils/deck"
 import './GetCard.css'
 import { CardInterface } from "./interfaces"
-
+import { v4 as uuidv4 } from 'uuid';
+import { symlink } from "fs";
 /** Gets cards
  * 
  * Table -> Card
@@ -17,32 +18,37 @@ import { CardInterface } from "./interfaces"
 
 interface ICards {
   cards: CardInterface[]
+  addFlippedCard: any 
 }
 
-function GetCard({ cards }: ICards) {
-  const [isActive, setActive] = useState(false);
 
-  function flipCard(e:any) {
+function GetCard({ cards, addFlippedCard }: ICards) {
+
+
+  /** adds flip class to target event to 'flip' card, updates state with code of 
+   * the flipped card
+   */
+  function flipCard(e: SyntheticEvent): void {
+    // console.log('current target', e.currentTarget)
     e.currentTarget.classList.toggle('flip');
-    console.log(e)
+    const targetEvent = e.currentTarget;//rename variable
+    addFlippedCard(targetEvent);
   }
 
-  // function toggleClass(e:any) {
-  //   e.setActive(!isActive)
-  // }
+
+
+// console.log(flippedCards.length)
+
+
+
 
   return (
 
     <>
       {cards.map((card: CardInterface) =>
-        <>
-          <section className='memory-card' onClick={flipCard}>
-            <Card key={card.code} card={card} />
-          </section>
-          {/* <section className='memory-card' onClick={flipCard}>
-            <Card key={card.code} card={card} />
-          </section> */}
-        </>
+        <section id={card.code} className='memory-card flip' onClick={flipCard}>
+          <Card key={uuidv4()} card={card} />
+        </section>
       )}
     </>
   )
