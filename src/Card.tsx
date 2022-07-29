@@ -1,4 +1,3 @@
-import react, { useState } from "react";
 import './Card.css'
 import { CardInterface } from "./interfaces"
 
