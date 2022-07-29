@@ -40,5 +40,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background: green;
+  background: #2c8257;
+  text-align: center;
 }

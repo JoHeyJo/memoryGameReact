@@ -1,7 +1,13 @@
+h1 {
+  margin: 2rem;
+}
+
 .memory-game {
-  border: 2px solid lime;
-  width: 500px;
-  height: 500px;
+  /* border: 2px solid rgba(255, 255, 255, .0); */
+  border: 5px dashed rgba(87, 56, 21);
+  width: 600px;
+  height: 600px;
+  padding: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -11,4 +17,18 @@
 
 .disable-pointer {
   pointer-events: none;
+}
+
+button {
+  /* margin:auto; */
+  width: 15%;
+  padding: .5em;
+  margin-bottom: 5rem;
+  border-radius: 5%;
+  background-color: rgb(182, 182, 20);
+  color: black;
+}
+
+h3 {
+  margin-top: 1%;
 }
