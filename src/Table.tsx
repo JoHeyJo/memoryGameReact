@@ -78,7 +78,7 @@ function Table() {
         setCorrectMatches(matches => matches + 2)
       }
     }
-    if (correctMatches === cards.length) setIsGameOver(true);
+    if (correctMatches === cards.length && cards.length !== 0) setIsGameOver(true);
   }, [flippedCards])
 
 
